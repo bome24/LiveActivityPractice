@@ -15,6 +15,13 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                Button("Show Notification") {
+                    UIApplication.shared.inAppNotification(adaptForDynamicIsland: true, timeout: 3, swipeToClose: true) {
+                        RoundedRectangle(cornerRadius: 15, style: .continuous)
+//                        Rectangle()
+                            .fill(.black)
+                    }
+                }
                 Button("Activate Live Activity") {
                     let dynamicIslandWidgetAttributes = DynamicIslandWidgetAttributes(name: "test")
                     let contentState = DynamicIslandWidgetAttributes.ContentState(value: 7, isConnected: connectionStatus)
